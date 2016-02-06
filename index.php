@@ -25,7 +25,7 @@
 </head>
 <body>
 <?php
-include('views/nav-bar.php');
+include('views/navbar-alt-view.php');
 ?>
 
 <div class="container">
@@ -105,7 +105,7 @@ include('views/nav-bar.php');
         </div>
     </div>
 
-    <?php include('views/footer.php'); ?>
+    <?php include('views/footer-view.php'); ?>
 </div> <!--container-->
 </body>
 </html>
