@@ -1,3 +1,7 @@
+<?php
+include('inc/db_conn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Bootstrap -->
     <link href="../bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom -->
+    <link rel="stylesheet" href="../assets/css/my-style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

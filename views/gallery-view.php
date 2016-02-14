@@ -1,3 +1,9 @@
+<?php
+include('../inc/db_conn.php');
+
+$IMAGE_ROOT = "..";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +15,10 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/css/my-style.css">
     <!-- Bootstrap -->
     <link href="../../bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom -->
+    <link rel="stylesheet" href="../assets/css/my-style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,6 +29,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -90,6 +98,29 @@ include('./navbar-view.php');
 
 <div class="container">
 
+    <?php
+    $landscape = array();
+    $portrait = array();
+
+    $sql = "SELECT * FROM imagePaths WHERE galleryID = 1";
+    $result = $mysqli->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $path = $IMAGE_ROOT . $row['path'];
+            list($width, $height) = getimagesize($path);
+            if ($width > $height) {                         // landscape
+                array_push($landscape,$path);
+            } else {                                        // portrait
+                array_push($portrait,$path);
+            }
+        }
+    }
+    $countLandscape = count($landscape);
+    $countPortrait = count($portrait);
+
+    echo "landscape: " . $countLandscape . ", portrait: " . $countPortrait . "<br>";
+    ?>
+
     <div class="row">
         <div class="col-xs-6 col-md-3">
             <a href="#" class="thumbnail">
@@ -116,16 +147,15 @@ include('./navbar-view.php');
                 <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6267.jpg" />
             </a>
         </div>
-        <div class="col-xs-6 col-md-3">
-            <div class="col-xs-12">
+        <div class="col-xs-6 col-md-6">
+            <div class="col-xs-12 no-pad-thumb">
                 <a href="#" class="thumbnail"><img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6189.jpg" /></a>
             </div>
-            <div class="col-xs-12">
+            <div class="col-xs-12 no-pad-thumb">
                 <a href="#" class="thumbnail"><img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6203.jpg" /></a>
             </div>
         </div>
     </div>
-
 
     <?php include('./footer-view.php'); ?>
 </div> <!--container-->
@@ -143,6 +173,11 @@ include('./navbar-view.php');
             //var modal = $(this)
             //modal.find('#' & photo).addClass("active")
         })
+
+        $('.grid').masonry({
+            itemSelector: '.grid-item',
+            columnWidth: 160
+        });
     });
 </script>
 
