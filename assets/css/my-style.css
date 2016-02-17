@@ -4,3 +4,11 @@
     padding: 0px;
 }
 
+.landscape-thumb img {
+    width: 100%;
+}
+
+.portrait-thumb img {
+    width: 100%;
+}
+

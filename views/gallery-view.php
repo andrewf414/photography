@@ -119,7 +119,20 @@ include('./navbar-view.php');
     $countPortrait = count($portrait);
 
     echo "landscape: " . $countLandscape . ", portrait: " . $countPortrait . "<br>";
+
+
     ?>
+    <div class="landscape-thumb col-md-4">
+        <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6203.jpg" />
+    </div>
+
+    <div class="portrait-thumb col-md-3">
+        <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6110.jpg" data-whatever="1" />
+    </div>
+
+
+
+
 
     <div class="row">
         <div class="col-xs-6 col-md-3">
@@ -166,6 +179,7 @@ include('./navbar-view.php');
         $('#galleryModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var photo = button.data('whatever') // Extract info from data-* attributes
+            alert(photo);
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 
@@ -173,11 +187,6 @@ include('./navbar-view.php');
             //var modal = $(this)
             //modal.find('#' & photo).addClass("active")
         })
-
-        $('.grid').masonry({
-            itemSelector: '.grid-item',
-            columnWidth: 160
-        });
     });
 </script>
 
