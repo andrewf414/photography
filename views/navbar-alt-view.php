@@ -19,11 +19,11 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Concerts<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Seth Sentry</a></li>
-                        <li><a href="#">L-Fresh the Lion</a></li>
-                        <li><a href="views/gallery-view.php">Human Nature</a></li>
-                        <li><a href="#">Lee Kernaghan</a></li>
-                        <li><a href="#">The Wolfe Brothers</a></li>
+                        <li><a href="views/gallery-view.php?gallery=3">Seth Sentry</a></li>
+                        <li><a href="views/gallery-view.php">L-Fresh the Lion</a></li>
+                        <li><a href="views/gallery-view.php?gallery=1">Human Nature</a></li>
+                        <li><a href="views/gallery-view.php">Lee Kernaghan</a></li>
+                        <li><a href="views/gallery-view.php?gallery=2">The Wolfe Brothers</a></li>
                     </ul>
                 </li>
             </ul>

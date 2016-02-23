@@ -41,31 +41,10 @@ include('./navbar-view.php');
 <div class="container">
 
     <?php
-//    $landscape = array();
-//    $portrait = array();
-//
-//    $sql = "SELECT * FROM imagePaths WHERE galleryID = 1";
-//    $result = $mysqli->query($sql);
-//    if ($result->num_rows > 0) {
-//        while ($row = $result->fetch_assoc()) {
-//            $path = $IMAGE_ROOT . $row['path'];
-//            list($width, $height) = getimagesize($path);
-//            if ($width > $height) {                         // landscape
-//                array_push($landscape,$path);
-//            } else {                                        // portrait
-//                array_push($portrait,$path);
-//            }
-//        }
-//    }
-//    $countLandscape = count($landscape);
-//    $countPortrait = count($portrait);
-//    $perCol = floor(($countLandscape + $countPortrait * 2) / 4);
-
-
-
+    $galleryID = $_GET['gallery'];
     $images = array();
 
-    $sql = "SELECT * FROM imagePaths WHERE galleryID = 1";
+    $sql = "SELECT * FROM imagePaths WHERE galleryID = $galleryID";
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -77,7 +56,6 @@ include('./navbar-view.php');
     for ($i = 0; $i < count($images); $i++) {
         echo "<div class='gallery-thumb'><img data-target=\"#galleryModal\" data-toggle=\"modal\" src=\"$images[$i]\" data-whatever=$i /></div>";
     }
-
     ?>
 
 
@@ -129,16 +107,26 @@ include('./navbar-view.php');
 <script>
 
     $(document).ready(function () {
+        var previousPhoto;
         $('#galleryModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var photo = button.data('whatever') // Extract info from data-* attributes
-            //alert(photo);
 
             $('.carousel').carousel(photo);
             var modal = $(this);
-            modal.find('#image' + photo).addClass("active");
+            modal.find('#image' + photo).addClass("active");            // set active the one clicked
+            modal.find('#image' + previousPhoto).removeClass("active"); // unset active so that it doesn't make a long modal
+            previousPhoto = photo;
         })
 
+        // make controls work
+        $('.carousel-control.left').click(function() {
+            $('#gallery-carousel').carousel('prev');
+        });
+
+        $('.carousel-control.right').click(function() {
+            $('#gallery-carousel').carousel('next');
+        });
     });
 
 </script>
