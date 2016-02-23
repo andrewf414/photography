@@ -1,14 +1,12 @@
-
-/* Thumbnail gallery */
-.no-pad-thumb {
-    padding: 0px;
+.gallery-thumb img {
+    display: inline;
+    /*max-width:230px;*/
+    max-height:300px;
+    width: auto;
+    height: auto;
+    margin: 2px;
 }
 
-.landscape-thumb img {
-    width: 100%;
+.gallery-thumb {
+    display: inline;
 }
-
-.portrait-thumb img {
-    width: 100%;
-}
-

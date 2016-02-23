@@ -29,7 +29,7 @@ $IMAGE_ROOT = "..";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
-    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+
     <![endif]-->
 </head>
 <body>
@@ -37,157 +37,110 @@ $IMAGE_ROOT = "..";
 include('./navbar-view.php');
 ?>
 
-<!-- MODAL FOR BIG GALLERY-->
-<div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-<!--            <div class="modal-header">-->
-<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-<!--                <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>-->
-<!--            </div>-->
-            <div class="modal-body">
-                <div id="carousel-featured-images" class="carousel slide" data-ride="carousel" data-interval="4000">
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item">
-                            <img src="../assets/img/human_nature/_MG_6110.jpg" class="img-responsive" alt="Human Nature">
-                            <div class="carousel-caption"></div>
-                        </div>
-                        <div class="item">
-                            <img src="../assets/img/human_nature/_MG_6155.jpg" class="img-responsive" alt="Human Nature">
-                            <div class="carousel-caption"></div>
-                        </div>
-                        <div class="item">
-                            <img src="../assets/img/human_nature/_MG_6221.jpg" class="img-responsive" alt="The Wolfe Brothers">
-                            <div class="carousel-caption"></div>
-                        </div>
-                        <div class="item">
-                            <img src="../assets/img/human_nature/_MG_6224.jpg" class="img-responsive" alt="The Wolfe Brothers">
-                            <div class="carousel-caption"></div>
-                        </div>
-                        <div class="item">
-                            <img src="../assets/img/human_nature/_MG_6267.jpg" class="img-responsive" alt="The Wolfe Brothers">
-                            <div class="carousel-caption"></div>
-                        </div>
-                        <div class="item">
-                            <img src="../assets/img/human_nature/_MG_6189.jpg" class="img-responsive" alt="The Wolfe Brothers">
-                            <div class="carousel-caption"></div>
-                        </div>
-                    </div>
-
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-featured-images" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-featured-images" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-<!--            <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
-<!--            </div>-->
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 
 <div class="container">
 
     <?php
-    $landscape = array();
-    $portrait = array();
+//    $landscape = array();
+//    $portrait = array();
+//
+//    $sql = "SELECT * FROM imagePaths WHERE galleryID = 1";
+//    $result = $mysqli->query($sql);
+//    if ($result->num_rows > 0) {
+//        while ($row = $result->fetch_assoc()) {
+//            $path = $IMAGE_ROOT . $row['path'];
+//            list($width, $height) = getimagesize($path);
+//            if ($width > $height) {                         // landscape
+//                array_push($landscape,$path);
+//            } else {                                        // portrait
+//                array_push($portrait,$path);
+//            }
+//        }
+//    }
+//    $countLandscape = count($landscape);
+//    $countPortrait = count($portrait);
+//    $perCol = floor(($countLandscape + $countPortrait * 2) / 4);
+
+
+
+    $images = array();
 
     $sql = "SELECT * FROM imagePaths WHERE galleryID = 1";
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $path = $IMAGE_ROOT . $row['path'];
-            list($width, $height) = getimagesize($path);
-            if ($width > $height) {                         // landscape
-                array_push($landscape,$path);
-            } else {                                        // portrait
-                array_push($portrait,$path);
-            }
+            array_push($images, $path);
         }
     }
-    $countLandscape = count($landscape);
-    $countPortrait = count($portrait);
 
-    echo "landscape: " . $countLandscape . ", portrait: " . $countPortrait . "<br>";
-
+    for ($i = 0; $i < count($images); $i++) {
+        echo "<div class='gallery-thumb'><img data-target=\"#galleryModal\" data-toggle=\"modal\" src=\"$images[$i]\" data-whatever=$i /></div>";
+    }
 
     ?>
-    <div class="landscape-thumb col-md-4">
-        <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6203.jpg" />
-    </div>
 
-    <div class="portrait-thumb col-md-3">
-        <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6110.jpg" data-whatever="1" />
-    </div>
-
-
-
-
-
-    <div class="row">
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6110.jpg" data-whatever="1" />
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6155.jpg" data-whatever=2 />
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6221.jpg" data-whatever="3" />
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6224.jpg" />
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6267.jpg" />
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-6">
-            <div class="col-xs-12 no-pad-thumb">
-                <a href="#" class="thumbnail"><img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6189.jpg" /></a>
-            </div>
-            <div class="col-xs-12 no-pad-thumb">
-                <a href="#" class="thumbnail"><img data-target="#galleryModal" data-toggle="modal" src="../assets/img/human_nature/_MG_6203.jpg" /></a>
-            </div>
-        </div>
-    </div>
 
     <?php include('./footer-view.php'); ?>
 </div> <!--container-->
+
+
+<!-- MODAL FOR BIG GALLERY-->
+<div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="galleryModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="gallery-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <?php
+//                        echo "<div class=\"item\">
+//                                    <img src=\"$images[0]\" class=\"img-responsive\" alt=\"Human Nature\">
+//                                    <div class=\"carousel-caption\"></div>
+//                                </div>";
+
+                        for ($i = 0; $i < count($images); $i++) {
+                            echo "<div class=\"item\" id=\"image$i\">
+                                    <img src=\"$images[$i]\" class=\"img-responsive\" alt=\"Human Nature\">
+                                    <div class=\"carousel-caption\"></div>
+                                </div>";
+                        }
+                        ?>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#gallery-carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 </body>
 
 <script>
+
     $(document).ready(function () {
         $('#galleryModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var photo = button.data('whatever') // Extract info from data-* attributes
-            alert(photo);
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            //alert(photo);
 
             $('.carousel').carousel(photo);
-            //var modal = $(this)
-            //modal.find('#' & photo).addClass("active")
+            var modal = $(this);
+            modal.find('#image' + photo).addClass("active");
         })
+
     });
+
 </script>
 
 </html>
