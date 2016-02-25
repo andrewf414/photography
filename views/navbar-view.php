@@ -14,23 +14,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Concerts<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">About</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Concerts<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="./gallery-view.php?gallery=3">Seth Sentry</a></li>
-                        <li><a href="./gallery-view.php">L-Fresh the Lion</a></li>
+                        <li><a href="./gallery-view.php?gallery=5">L-Fresh the Lion</a></li>
                         <li><a href="./gallery-view.php?gallery=1">Human Nature</a></li>
-                        <li><a href="./gallery-view.php">Lee Kernaghan</a></li>
+                        <li><a href="./gallery-view.php?gallery=6">Lee Kernaghan</a></li>
                         <li><a href="./gallery-view.php?gallery=2">The Wolfe Brothers</a></li>
+                        <li><a href="./gallery-view.php?gallery=4">James Morrison</a></li>
                     </ul>
                 </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="./contact-view.php">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

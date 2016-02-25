@@ -1,12 +1,45 @@
+/* GALLERY PAGE THUMBS AND MODAL */
+.gallery {
+    text-align: center;
+}
+
 .gallery-thumb img {
     display: inline;
-    /*max-width:230px;*/
-    max-height:300px;
+    /*max-width:300px;*/
+    /*max-height:300px;*/
     width: auto;
-    height: auto;
+    height: 300px;
     margin: 2px;
 }
 
 .gallery-thumb {
     display: inline;
+}
+
+.gallery-modal {
+    max-height:650px;
+    width: auto;
+    height: 100%;
+    margin: auto;
+}
+
+.gallery-modal img {
+    max-height:650px;
+    width: auto;
+    height: 100%;
+    margin: auto;
+}
+
+
+
+/* INDEX MODAL */
+.index-modal img {
+    max-height:650px;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
 }

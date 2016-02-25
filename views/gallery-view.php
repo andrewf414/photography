@@ -38,7 +38,35 @@ include('./navbar-view.php');
 ?>
 
 
-<div class="container">
+<div class="container gallery">
+
+
+<!--    --><?php
+//    $galleryID = $_GET['gallery'];
+//    $landscape = array();
+//    $portrait = array();
+//    $sql = "SELECT * FROM imagePaths WHERE galleryID = $galleryID";
+//    $result = $mysqli->query($sql);
+//
+//    if ($result->num_rows > 0) {
+//        while ($row = $result->fetch_assoc()) {
+//            $path = $IMAGE_ROOT . $row['path'];
+//            list($width, $height) = getimagesize($path);
+//            if ($width > $height) {                             // landscape
+//                array_push($landscape,$path);
+//                } else {                                        // portrait
+//                array_push($portrait,$path);
+//                }
+//        }
+//    }
+//    $countLandscape = count($landscape);
+//    $countPortrait = count($portrait);
+//    echo "landscape: " . $countLandscape . ", portrait: " . $countPortrait . "<br>";
+//
+//    ?>
+
+
+
 
     <?php
     $galleryID = $_GET['gallery'];
@@ -68,17 +96,12 @@ include('./navbar-view.php');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <div id="gallery-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+                <div id="gallery-carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-keyboard="true">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <?php
-//                        echo "<div class=\"item\">
-//                                    <img src=\"$images[0]\" class=\"img-responsive\" alt=\"Human Nature\">
-//                                    <div class=\"carousel-caption\"></div>
-//                                </div>";
-
                         for ($i = 0; $i < count($images); $i++) {
-                            echo "<div class=\"item\" id=\"image$i\">
+                            echo "<div class=\"item gallery-modal\" id=\"image$i\">
                                     <img src=\"$images[$i]\" class=\"img-responsive\" alt=\"Human Nature\">
                                     <div class=\"carousel-caption\"></div>
                                 </div>";

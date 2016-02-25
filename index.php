@@ -16,7 +16,7 @@ include('inc/db_conn.php');
     <!-- Bootstrap -->
     <link href="../bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom -->
-    <link rel="stylesheet" href="../assets/css/my-style.css">
+    <link rel="stylesheet" href="assets/css/my-style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,15 +47,15 @@ include('views/navbar-alt-view.php');
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
+            <div class="item active index-modal">
                 <img src="assets/img/human_nature/_MG_6098.jpg" class="img-responsive" alt="Human Nature">
                 <div class="carousel-caption"></div>
             </div>
-            <div class="item">
+            <div class="item index-modal">
                 <img src="assets/img/human_nature/_MG_6189.jpg" class="img-responsive" alt="Human Nature">
                 <div class="carousel-caption"></div>
             </div>
-            <div class="item">
+            <div class="item index-modal">
                 <img src="assets/img/wolfe_brothers/_MG_9104.jpg" class="img-responsive" alt="The Wolfe Brothers">
                 <div class="carousel-caption"></div>
             </div>
@@ -78,10 +78,10 @@ include('views/navbar-alt-view.php');
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img src="assets/img/human_nature/_MG_6098.jpg" alt="Human Nature">
+                <img src="assets/img/passenger/.jpg" alt="Passenger">
                 <div class="caption">
-                    <h3>Human Nature</h3>
-                    <p>Human Nature played at the Wrest Point Casino as part of their Jukebox tour...</p>
+                    <h3>Passenger</h3>
+                    <p>Passenger played at the Odeon Theatre in Hobart on 21 Feb 2016.</p>
                     <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default"
                                                                                        role="button">Button</a></p>
                 </div>
