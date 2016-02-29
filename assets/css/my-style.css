@@ -1,3 +1,26 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(251, 251, 251);
+}
+
+/* MODALS GENERAL*/
+.modal-dialog {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.modal-content {
+    min-height: 100%;
+    height: auto;
+    border-radius: 0;
+    background-color: rgba(0,0,0,.8);
+}
+
+.modal-body {
+    background-color: rgba(0,0,0,0);
+}
+
 /* GALLERY PAGE THUMBS AND MODAL */
 .gallery {
     text-align: center;
@@ -8,7 +31,7 @@
     /*max-width:300px;*/
     /*max-height:300px;*/
     width: auto;
-    height: 300px;
+    height: 250px;
     margin: 2px;
 }
 
@@ -16,15 +39,16 @@
     display: inline;
 }
 
-.gallery-modal {
-    max-height:650px;
+
+.gallery-modal {        /* Innermost div */
+    max-height:700px;
     width: auto;
     height: 100%;
     margin: auto;
 }
 
 .gallery-modal img {
-    max-height:650px;
+    max-height:700px;
     width: auto;
     height: 100%;
     margin: auto;
@@ -33,10 +57,10 @@
 
 
 /* INDEX MODAL */
-.index-modal img {
-    max-height:650px;
+.index-carousel img {
+    max-height:700px;
     width: auto;
-    height: auto;
+    height: 100%;
     margin: auto;
 }
 

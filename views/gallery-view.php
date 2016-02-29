@@ -14,11 +14,13 @@ $IMAGE_ROOT = "..";
     <title>Andrew Fitzgerald</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
     <!-- Bootstrap -->
-    <link href="../../bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'  type='text/css'>
     <!-- Custom -->
-    <link rel="stylesheet" href="../assets/css/my-style.css">
+    <link rel="stylesheet" href="../assets/css/my-style.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,9 +28,9 @@ $IMAGE_ROOT = "..";
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../assets/js/jquery-1.12.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../../bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 
     <![endif]-->
 </head>
@@ -40,43 +42,16 @@ include('./navbar-view.php');
 
 <div class="container gallery">
 
-
-<!--    --><?php
-//    $galleryID = $_GET['gallery'];
-//    $landscape = array();
-//    $portrait = array();
-//    $sql = "SELECT * FROM imagePaths WHERE galleryID = $galleryID";
-//    $result = $mysqli->query($sql);
-//
-//    if ($result->num_rows > 0) {
-//        while ($row = $result->fetch_assoc()) {
-//            $path = $IMAGE_ROOT . $row['path'];
-//            list($width, $height) = getimagesize($path);
-//            if ($width > $height) {                             // landscape
-//                array_push($landscape,$path);
-//                } else {                                        // portrait
-//                array_push($portrait,$path);
-//                }
-//        }
-//    }
-//    $countLandscape = count($landscape);
-//    $countPortrait = count($portrait);
-//    echo "landscape: " . $countLandscape . ", portrait: " . $countPortrait . "<br>";
-//
-//    ?>
-
-
-
-
     <?php
     $galleryID = $_GET['gallery'];
     $images = array();
 
-    $sql = "SELECT * FROM imagePaths WHERE galleryID = $galleryID";
+    $sql = "SELECT * FROM imagePaths JOIN galleries on imagepaths.galleryID = galleries.galleryID WHERE imagepaths.galleryID = $galleryID";
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $path = $IMAGE_ROOT . $row['path'];
+            $galleryName = $row['galleryName'];
             array_push($images, $path);
         }
     }
@@ -86,8 +61,7 @@ include('./navbar-view.php');
     }
     ?>
 
-
-    <?php include('./footer-view.php'); ?>
+    <div class="row"><?php include('./footer-view.php'); ?></div>
 </div> <!--container-->
 
 
@@ -102,7 +76,7 @@ include('./navbar-view.php');
                         <?php
                         for ($i = 0; $i < count($images); $i++) {
                             echo "<div class=\"item gallery-modal\" id=\"image$i\">
-                                    <img src=\"$images[$i]\" class=\"img-responsive\" alt=\"Human Nature\">
+                                    <img src=\"$images[$i]\" class=\"img-responsive\" alt=\"$galleryName\">
                                     <div class=\"carousel-caption\"></div>
                                 </div>";
                         }

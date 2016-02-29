@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Home</a>
+            <a class="navbar-brand" href="#">Andrew Fitzgerald</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,12 +22,20 @@
                         <li><a href="views/gallery-view.php?gallery=1">Human Nature</a></li>
                         <li><a href="views/gallery-view.php?gallery=6">Lee Kernaghan</a></li>
                         <li><a href="views/gallery-view.php?gallery=2">The Wolfe Brothers</a></li>
+                        <li><a href="views/gallery-view.php?gallery=4">James Morrison</a></li>
+                        <li><a href="views/gallery-view.php?gallery=7">The Angels</a></li>
+                        <li><a href="views/gallery-view.php?gallery=9">Mark Seymour & The Undertow</a></li>
+                        <li><a href="views/gallery-view.php?gallery=8">Jimmy Barnes</a></li>
+                        <li><a href="views/gallery-view.php?gallery=10">Noiseworks</a></li>
+                        <li><a href="views/gallery-view.php?gallery=11">Passenger</a></li>
                     </ul>
                 </li>
+                <li><a href="views/gallery-view.php?gallery=12">Landscapes</a></li>
+                <li><a href="views/gallery-view.php?gallery=13">Travel</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">About</a></li>
+<!--                <li><a href="#">About</a></li>-->
                 <li><a href="views/contact-view.php">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
