@@ -46,7 +46,7 @@ include('./navbar-view.php');
     $galleryID = $_GET['gallery'];
     $images = array();
 
-    $sql = "SELECT * FROM imagePaths JOIN galleries on imagepaths.galleryID = galleries.galleryID WHERE imagepaths.galleryID = $galleryID";
+    $sql = "SELECT * FROM imagePaths JOIN galleries on imagePaths.galleryID = galleries.galleryID WHERE imagePaths.galleryID = $galleryID";
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {

@@ -33,6 +33,7 @@ body {
     width: auto;
     height: 250px;
     margin: 2px;
+    cursor: pointer;
 }
 
 .gallery-thumb {
@@ -66,4 +67,10 @@ body {
 
 .carousel-control.left, .carousel-control.right {
     background-image: none;
+}
+
+
+/* ICON COLORS */
+.fa {
+    color: #666269;
 }

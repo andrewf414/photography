@@ -36,7 +36,7 @@
 
             <ul class="nav navbar-nav navbar-right">
 <!--                <li><a href="#">About</a></li>-->
-                <li><a href="./contact-view.php">Contact</a></li>
+<!--                <li><a href="./contact-view.php">Contact</a></li>-->
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
